@@ -17,7 +17,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Dodaj" Margin="691,383,10,26" Click="Button_Click"/>
+        
+        <Button Content="Dodaj" Margin="736,383,0,0" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="54"/>
 
     </Grid>
 </Window>

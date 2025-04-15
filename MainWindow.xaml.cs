@@ -23,6 +23,8 @@ namespace WpfApp1
         public string m_strName { get; set; }
         public string m_strSname { get; set; }
         public string m_strPESEL { get; set; }
+        public string m_strSurname { get; internal set; }
+        public string m_strSecName { get; internal set; }
     }
 
     public partial class MainWindow : Window
@@ -38,22 +40,26 @@ namespace WpfApp1
             People = new ObservableCollection<Person>();
             listView.ItemsSource = People;
         }
-
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            Random random = new Random();
             Person newPerson = new Person
             {
-                m_nID = random.Next(1000, 9999),
-                m_strName = "Imie" + random.Next(1, 100),
-                m_strSname = "Nazwisko" + random.Next(1, 100),
-                m_strPESEL = random.Next(1000000, 99999999).ToString()
+                
             };
 
 
             People.Add(newPerson);
+        }
+        private void NewRecord_Click(object sender, RoutedEventArgs e)
+        {
+            
+            var dodajOsobeWindow = new DodajOsobe(); 
+            if (dodajOsobeWindow.ShowDialog() == true)
+            {
+                People.Add(dodajOsobeWindow.Person); 
+            }
         }
     }
 }
